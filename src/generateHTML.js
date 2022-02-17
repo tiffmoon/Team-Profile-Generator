@@ -30,7 +30,7 @@ function createEmployeeCard(employee) {
         <li class="list-group-item">ID: ${employee.getID()}</li>
         <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}"> ${employee.getEmail()}</a>
           </li>
-        <li class="list-group-item" style="visibilty: ${specialItemVisibility};">${specialItemKey}: ${specialItemValue}</li>
+        <li class="list-group-item" style="visibility: ${specialItemVisibility};">${specialItemKey}: ${specialItemValue}</li>
       </ul>
     </div>
 `;
@@ -44,7 +44,7 @@ function generateHTML(employees) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type= "text/css" href="style.css">
     <title>Employees</title>
   </head>
   <header>
