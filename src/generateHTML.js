@@ -30,7 +30,7 @@ function createEmployeeCard(employee) {
         <li class="list-group-item">ID: ${employee.getID()}</li>
         <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}"> ${employee.getEmail()}</a>
           </li>
-        <li class="list-group-item" style="visibility: ${specialItemVisibility};">${specialItemKey}: ${specialItemValue}</li>
+        <li class="list-group-item" style="visibilty: ${specialItemVisibility};">${specialItemKey}: ${specialItemValue}</li>
       </ul>
     </div>
 `;
