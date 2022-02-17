@@ -7,6 +7,7 @@ const fs = require("fs");
 const { prompt } = require("inquirer");
 const generateHTML = require("./src/generatehtml");
 
+// questions that we will ask user - enter information about team members
 const questions = () => {
   return inquirer.prompt([
     {
@@ -85,89 +86,58 @@ const questions = () => {
         return true;
       },
     },
-    
   ]);
 };
 
-// How do i get the questions to repeat again if they selecte Y to adding a new team member?
-
-const employees = [];
+const employees = []; // empty array for adding new employees
 
 async function askForNewEmployee() {
   var answers = await questions();
 
-  console.log(answers);
-
-  switch (answers.role) {
-    case "Manager":
+  switch (answers.role) { // depending on the role they select, create new instance of role and push to employees array
+    case "Manager" :
       employees.push(
-        new Manager(
-          answers.name,
-          answers.id,
-          answers.email,
-          answers.officeNumber
-        )
+        new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
       );
-      break;
-
-    case "Engineer":
+    break;
+    case "Engineer" :
       employees.push(
         new Engineer(answers.name, answers.id, answers.email, answers.github)
       );
       break;
-
-    case "Intern":
+    case "Intern" :
       employees.push(
         new Intern(answers.name, answers.id, answers.email, answers.school)
       );
       break;
-    // console.log(employees);
+    case "Employee" :
+      employees.push(
+        new Employee(answers.name, answers.id, answers.email)
+      );
+      break;
   }
-  // ask the qustions again depeding if user wanted to add new employee
-  const wantsToAddNewMember = await  inquirer.prompt([
-    {
-      type: "confirm",
-      message: "Do you want to add another team member?",
-      name: "addMember",
-    },
-  ]).then((ans) => {
-    return ans.addMember;
-  })
-  
+  // ask if they want to add another member - will return boolean value
+  const wantsToAddNewMember = await inquirer
+    .prompt([
+      {
+        type: "confirm",
+        message: "Do you want to add another team member?",
+        name: "addMember",
+      },
+    ])
+    .then((ans) => {
+      return ans.addMember;
+    });
 
-  if(wantsToAddNewMember){
+  if (wantsToAddNewMember) { // if 'True' then run questions again / add new employee
     await askForNewEmployee();
   }
-
-
 }
 
-async function init() {
+async function init() { // runs ask for new employee and then generates HTML from emplyee data
   await askForNewEmployee();
-
-  console.log(employees);
-
-  fs.writeFileSync(__dirname + "/dist/index.html", generateHTML(employees)); // is this right??
-  // .then((answers) => fs.writeFileSync('index.html', generateMarkdown(answers)))
-  // .then(() => console.log('Successfully created README.md!'))
-  // .catch((err) => console.error(err));
+  fs.writeFileSync(__dirname + "/dist/index.html", generateHTML(employees));
 }
 
-// const promptA = await inquirer.prompt({
-//   type: 'confirm',
-//   name: 'continue',
-// });
-
-// if (promptA) {
-//   init();
-// }
 
 init();
-
-// function
-
-// fs.writeFileSync('index.html', generateHTML(answers), (err) =>
-//       err ? console.log(err) : console.log('Successfully created index.html!')
-//     );
-
-// How do i create a css file as well? or can that aready be created?

@@ -1,10 +1,11 @@
-header {
+h1 {
   justify-content: center;
   padding: 100;
   margin: 100;
   color: #fff1f1;
   margin-bottom: 50px;
   box-shadow: 5px 4px 15px #f93131;
+  height: 400 !important;
   background: linear-gradient(
   90deg, rgba(238,58,58,1) 4%, rgba(250,190,104,1) 100%, rgba(0,212,255,1) 100%);
 }
@@ -16,7 +17,24 @@ header {
 
 .card {
   margin: 200;
+  border: 333;
 }
 
-h1 {
+.title {
   text-align: center;
+  justify-content: center;
+  border: 200;
+  padding: 200;
+  margin: 200;
+  height: 400;
+}
+
+.cards {
+  margin: 200;
+  border: 333;
+}
+
+.card-body {
+  margin: 200;
+  border: 333;
+}
