@@ -1,0 +1,22 @@
+header {
+  justify-content: center;
+  padding: 100;
+  margin: 100;
+  color: #fff1f1;
+  margin-bottom: 50px;
+  box-shadow: 5px 4px 15px #f93131;
+  background: linear-gradient(
+  90deg, rgba(238,58,58,1) 4%, rgba(250,190,104,1) 100%, rgba(0,212,255,1) 100%);
+}
+.container {
+  padding: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 200;
+}
+
+h1 {
+  text-align: center;
